@@ -3,6 +3,7 @@ import path from 'node:path'
 import { projectsRouter } from './routes/projects.js'
 import dbConnect from './database/dbConnect.js'
 import { errorHandler } from './middleware/errorHandler.js'
+import cors from 'cors'
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -11,6 +12,7 @@ const __dirname = path.resolve()
 dbConnect()
 
 app.use(express.json())
+app.use(cors())
 
 app.use('/api', projectsRouter)
 if (process.env.NODE_ENV === 'production') {
