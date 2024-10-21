@@ -20,6 +20,8 @@ const HamburgerMenu = () => {
 		<>
 			<IconButton
 				onClick={onOpen}
+				bg={'transparent'}
+				colorScheme='gray'
 				aria-label='Open Menu'
 				icon={<HamburgerIcon />}
 			>
@@ -31,7 +33,7 @@ const HamburgerMenu = () => {
 					<DrawerCloseButton />
 					<DrawerHeader>Menu</DrawerHeader>
 					<DrawerBody>
-						<VStack>
+						<VStack textTransform={'uppercase'}>
 							<Menu />
 						</VStack>
 					</DrawerBody>
