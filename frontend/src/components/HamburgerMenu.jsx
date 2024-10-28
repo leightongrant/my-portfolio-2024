@@ -1,45 +1,40 @@
 import {
-	Drawer,
+	DrawerBackdrop,
 	DrawerBody,
-	DrawerHeader,
-	DrawerOverlay,
+	DrawerCloseTrigger,
 	DrawerContent,
-	DrawerCloseButton,
-	useDisclosure,
-	IconButton,
-	VStack,
-} from '@chakra-ui/react'
+	DrawerHeader,
+	DrawerRoot,
+	DrawerTitle,
+	DrawerTrigger,
+} from '@/components/ui/drawer'
+
+import { VStack, IconButton } from '@chakra-ui/react'
+import { Menu as HamMenu } from 'lucide-react'
+
 import Menu from './Menu'
-import { HamburgerIcon } from '@chakra-ui/icons'
 
 const HamburgerMenu = () => {
-	const { isOpen, onClose, onOpen } = useDisclosure()
-	const size = 'xs'
-
 	return (
-		<>
-			<IconButton
-				onClick={onOpen}
-				bg={'transparent'}
-				colorScheme='gray'
-				aria-label='Open Menu'
-				icon={<HamburgerIcon />}
-			>
-				Hamb
-			</IconButton>
-			<Drawer onClose={onClose} isOpen={isOpen} size={size}>
-				<DrawerOverlay />
-				<DrawerContent>
-					<DrawerCloseButton />
-					<DrawerHeader>Menu</DrawerHeader>
-					<DrawerBody>
-						<VStack textTransform={'uppercase'}>
-							<Menu />
-						</VStack>
-					</DrawerBody>
-				</DrawerContent>
-			</Drawer>
-		</>
+		<DrawerRoot>
+			<DrawerBackdrop />
+			<DrawerTrigger asChild>
+				<IconButton aria-label='menu' variant={'ghost'} fontWeight={'bolder'}>
+					<HamMenu />
+				</IconButton>
+			</DrawerTrigger>
+			<DrawerContent>
+				<DrawerHeader>
+					<DrawerTitle>Menu</DrawerTitle>
+				</DrawerHeader>
+				<DrawerBody>
+					<VStack>
+						<Menu />
+					</VStack>
+				</DrawerBody>
+				<DrawerCloseTrigger />
+			</DrawerContent>
+		</DrawerRoot>
 	)
 }
 

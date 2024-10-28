@@ -1,23 +1,37 @@
-import { Flex, Text, HStack, Spacer, Show, Hide } from '@chakra-ui/react'
+import { Flex, Text, HStack, Spacer, Link } from '@chakra-ui/react'
+
 import Menu from './Menu'
 import HamburgerMenu from './HamburgerMenu'
-const breakpoint = '(max-width: 30em)'
+import { ColorModeButton } from '@/components/ui/color-mode'
+
 const Navbar = () => {
 	return (
 		<Flex as={'nav'} p={'4'}>
 			<HStack>
-				<Text>LOGO</Text>
+				<Link href='/'>
+					<Text fontWeight={'bolder'} fontSize={'2xl'}>
+						LOGO
+					</Text>
+				</Link>
+			</HStack>
+			<Spacer />
+
+			<HStack
+				gap={5}
+				textTransform={'uppercase'}
+				hideBelow={'md'}
+				fontWeight={'bold'}
+			>
+				<Menu />
 			</HStack>
 			<Spacer />
 			<HStack>
-				<Hide breakpoint={breakpoint}>
-					<HStack gap={10} textTransform={'uppercase'}>
-						<Menu />
-					</HStack>
-				</Hide>
-				<Show breakpoint={breakpoint}>
+				<HStack>
+					<ColorModeButton />
+				</HStack>
+				<HStack hideFrom={'md'}>
 					<HamburgerMenu />
-				</Show>
+				</HStack>
 			</HStack>
 		</Flex>
 	)

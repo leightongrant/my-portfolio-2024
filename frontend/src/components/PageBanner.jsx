@@ -1,8 +1,12 @@
-import { Box, Center } from '@chakra-ui/react'
+import { Box, Center, Heading } from '@chakra-ui/react'
 const PageBanner = ({ location }) => {
 	return (
-		<Box p={'5'} bg={'gray.500'}>
-			<Center>{location.slice(1)}</Center>
+		<Box p={'5'} bg={{ base: 'gray.200', _dark: 'gray.600' }}>
+			<Center>
+				<Heading style={{ textTransform: 'capitalize' }} fontSize={'2xl'}>
+					{location.slice(1)}
+				</Heading>
+			</Center>
 		</Box>
 	)
 }
