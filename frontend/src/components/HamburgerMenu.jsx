@@ -14,13 +14,13 @@ import { Menu as HamMenu } from 'lucide-react'
 
 import Menu from './Menu'
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ y, Y }) => {
 	return (
 		<DrawerRoot>
 			<DrawerBackdrop />
 			<DrawerTrigger asChild>
 				<IconButton aria-label='menu' variant={'ghost'} fontWeight={'bolder'}>
-					<HamMenu />
+					<HamMenu color={y > Y ? 'black' : 'white'} />
 				</IconButton>
 			</DrawerTrigger>
 			<DrawerContent>

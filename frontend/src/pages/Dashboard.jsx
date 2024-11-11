@@ -1,35 +1,31 @@
 import { Box, Container, For, SimpleGrid } from '@chakra-ui/react'
-import { useProjectStore } from '../store/projectStore'
+import AddProject from '@/components/AddProject'
+import { useProjectStore } from '@/store/projectStore'
+import DashboardCard from '@/components/DashboardCard'
+import { fallBack } from '@/utilities'
 import { useEffect } from 'react'
-import ProjectCard from '@/components/ProjectCard'
-import { fallBack } from '@/utilities.jsx'
 
-const Projects = () => {
+const Dashboard = () => {
 	const { projects, getProjects } = useProjectStore()
 	useEffect(() => {
 		getProjects()
-	}, [getProjects])
+	}, [getProjects, projects])
 
 	if (!projects) {
 		return <p>Loading...</p>
 	}
+
 	return (
 		<Box as={'section'} py={'sectionPadding'}>
+			<Container mb='16'>
+				<AddProject />
+			</Container>
 			<Container>
-				<SimpleGrid
-					gap={10}
-					templateColumns={{
-						base: '1fr',
-						wide: 'repeat(4, 1fr)',
-						tablet: 'repeat(3, 1fr)',
-						small: 'repeat(2, 1fr)',
-					}}
-					templateRows={'1fr 1fr'}
-				>
+				<SimpleGrid gap={10} templateColumns={'1fr 1fr'}>
 					<For each={projects} fallback={fallBack}>
 						{item => (
 							<Box key={item._id}>
-								<ProjectCard item={item} />
+								<DashboardCard item={item} />
 							</Box>
 						)}
 					</For>
@@ -39,4 +35,4 @@ const Projects = () => {
 	)
 }
 
-export default Projects
+export default Dashboard

@@ -1,19 +1,16 @@
-import { Heading, Flex, VStack } from '@chakra-ui/react'
+import Hero from '../components/Hero'
+import AboutMe from '../components/AboutMe'
+import { Box } from '@chakra-ui/react'
 const Homepage = () => {
 	return (
-		<Flex
-			as='section'
-			minH={'100%'}
-			alignItems={'center'}
-			justifyContent={'center'}
-		>
-			<VStack>
-				<Heading as={'h1'} fontSize={{ lg: '5xl', md: '4xl' }} color={'brand'}>
-					Welcome to my portfolio
-				</Heading>
-				<Heading>Frontend Web Developer</Heading>
-			</VStack>
-		</Flex>
+		<>
+			<Box as={'section'}>
+				<Hero />
+			</Box>
+			<Box as={'section'} py={'sectionPadding'}>
+				<AboutMe />
+			</Box>
+		</>
 	)
 }
 

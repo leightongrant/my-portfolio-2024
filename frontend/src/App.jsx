@@ -7,6 +7,7 @@ import Contact from './pages/ Contact'
 import NotFound from './pages/NotFound'
 import Admin from './pages/Admin'
 import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
 
 const router = createBrowserRouter([
 	{
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
 			{ path: 'projects', element: <Projects /> },
 			{ path: 'about', element: <About /> },
 			{ path: 'contact', element: <Contact /> },
+			{ path: 'dashboard', element: <Dashboard /> },
 			{
 				element: <Admin />,
 				children: [{ path: 'login', element: <Login /> }],

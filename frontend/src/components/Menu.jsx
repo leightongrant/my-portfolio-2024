@@ -1,12 +1,29 @@
 import { Link } from '@chakra-ui/react'
+const Menu = ({ y, Y, pathname }) => {
+	let color = ''
+	if (
+		pathname === '/' ||
+		pathname === '/about' ||
+		pathname === '/projects' ||
+		pathname === '/contact'
+	) {
+		color = y > Y ? 'brandDark' : 'brandLight'
+	}
 
-const Menu = () => {
 	return (
 		<>
-			<Link href='/'>Home</Link>
-			<Link href='/about'>About</Link>
-			<Link href='/projects'>Projects</Link>
-			<Link href='/contact'>Contact</Link>
+			<Link href='/' color={color}>
+				Home
+			</Link>
+			<Link href='/about' color={color}>
+				About
+			</Link>
+			<Link href='/projects' color={color}>
+				Projects
+			</Link>
+			<Link href='/contact' color={color}>
+				Contact
+			</Link>
 		</>
 	)
 }
