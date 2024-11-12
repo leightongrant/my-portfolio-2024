@@ -19,9 +19,16 @@ export const getProjects = async (req, res, next) => {
 // Add projects
 export const addProject = async (req, res, next) => {
 	const { body } = req
-	if (!body.title || !body.description || !body.image) {
+	if (
+		!body.title ||
+		!body.description ||
+		!body.image ||
+		!body.about ||
+		!body.app ||
+		!body.repo
+	) {
 		const error = new Error(
-			'Please make sure you have a title, description and image'
+			'Please make sure you have a title, description, about, image, app, repo field in the body'
 		)
 		error.status = 400
 		return next(error)
