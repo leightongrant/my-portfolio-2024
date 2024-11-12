@@ -1,10 +1,13 @@
 import { Box, Card, Heading, HStack, Flex, Spacer } from '@chakra-ui/react'
-import { Button } from './ui/button'
-import { Trash } from 'lucide-react'
 import { useProjectStore } from '@/store/projectStore'
 import EditProject from './EditProject'
+import Confirm from './Confirm'
+
 const DashboardCard = ({ item }) => {
 	const { deleteProject } = useProjectStore()
+	const handleDelete = () => {
+		deleteProject(item._id)
+	}
 
 	return (
 		<Card.Root size='sm'>
@@ -19,13 +22,7 @@ const DashboardCard = ({ item }) => {
 
 				<HStack p={4}>
 					<EditProject item={item} />
-					<Button
-						colorPalette={'red'}
-						variant={'outline'}
-						onClick={() => deleteProject(item._id)}
-					>
-						<Trash />
-					</Button>
+					<Confirm handleDelete={handleDelete} />
 				</HStack>
 			</Flex>
 		</Card.Root>
