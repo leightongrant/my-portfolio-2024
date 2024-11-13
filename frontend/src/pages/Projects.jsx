@@ -3,6 +3,7 @@ import { useProjectStore } from '../store/projectStore'
 import { useEffect } from 'react'
 import ProjectCard from '@/components/ProjectCard'
 import { fallBack } from '@/utilities.jsx'
+import { ProjectSkeleton } from '@/components/Skeletons'
 
 const Projects = () => {
 	const { projects, getProjects } = useProjectStore()
@@ -11,8 +12,33 @@ const Projects = () => {
 	}, [getProjects])
 
 	if (!projects) {
-		return <p>Loading...</p>
+		const skeleton = [1, 2, 3, 4]
+		return (
+			<Box as={'section'} py={'sectionPadding'}>
+				<Container>
+					<SimpleGrid
+						gap={10}
+						templateColumns={{
+							base: '1fr',
+							wide: 'repeat(4, 1fr)',
+							tablet: 'repeat(3, 1fr)',
+							small: 'repeat(2, 1fr)',
+						}}
+						templateRows={'1fr 1fr'}
+					>
+						<For each={skeleton}>
+							{item => (
+								<Box key={item}>
+									<ProjectSkeleton />
+								</Box>
+							)}
+						</For>
+					</SimpleGrid>
+				</Container>
+			</Box>
+		)
 	}
+
 	return (
 		<Box as={'section'} py={'sectionPadding'}>
 			<Container>

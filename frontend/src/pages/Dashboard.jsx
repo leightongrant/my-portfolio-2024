@@ -21,7 +21,7 @@ const Dashboard = () => {
 				<AddProject />
 			</Container>
 			<Container>
-				<SimpleGrid gap={10} templateColumns={'1fr 1fr'}>
+				<SimpleGrid gap={5} templateColumns={'1fr 1fr'}>
 					<For each={projects} fallback={fallBack}>
 						{item => (
 							<Box key={item._id}>

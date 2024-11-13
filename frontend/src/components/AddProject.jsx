@@ -19,7 +19,12 @@ const AddProject = () => {
 		<HStack>
 			<DialogRoot lazyMount open={open} onOpenChange={e => setOpen(e.open)}>
 				<DialogTrigger asChild>
-					<Button variant='solid' size={'lg'} colorPalette={'green'}>
+					<Button
+						variant='solid'
+						size={'lg'}
+						colorPalette={'green'}
+						bg={{ base: 'colorPalette.700', _hover: 'colorPalette.600' }}
+					>
 						Add Project <SquarePlus />
 					</Button>
 				</DialogTrigger>

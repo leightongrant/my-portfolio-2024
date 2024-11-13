@@ -1,25 +1,25 @@
-import { Button, Card, Image, Text } from '@chakra-ui/react'
+import { Button, Card, Image, Link } from '@chakra-ui/react'
+import { ExternalLink } from 'lucide-react'
 
 const ProjectCard = ({ item }) => {
 	return (
 		<Card.Root maxW={'auto'} overflow='hidden'>
-			<Image
-				src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-				alt='Green double couch with wooden legs'
-			/>
+			<Image src={item.image} alt={item.about} />
 			<Card.Body gap='2'>
 				<Card.Title>{item.title}</Card.Title>
-				<Card.Description>
-					This sofa is perfect for modern tropical spaces, baroque inspired
-					spaces.
-				</Card.Description>
-				<Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>
-					$450
-				</Text>
+				<Card.Description lineClamp={2}>{item.description}</Card.Description>
 			</Card.Body>
 			<Card.Footer gap='2'>
-				<Button variant='solid'>Buy now</Button>
-				<Button variant='ghost'>Add to cart</Button>
+				<Link href={item.app} target='_blank'>
+					<Button variant='outline'>
+						App <ExternalLink />
+					</Button>
+				</Link>
+				<Link href={item.repo} target='_blank'>
+					<Button variant='outline'>
+						Repo <ExternalLink />
+					</Button>
+				</Link>
 			</Card.Footer>
 		</Card.Root>
 	)

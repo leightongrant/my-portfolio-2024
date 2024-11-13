@@ -16,7 +16,7 @@ const DashboardCard = ({ item }) => {
 					<Card.Header>
 						<Heading size='xl'> {item.title}</Heading>
 					</Card.Header>
-					<Card.Body color='fg.muted'>{item.description}</Card.Body>
+					<Card.Body color='fg.muted'>{item.about}</Card.Body>
 				</Box>
 				<Spacer />
 
