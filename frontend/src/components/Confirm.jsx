@@ -22,7 +22,11 @@ const Confirm = ({ handleDelete }) => {
 	return (
 		<PopoverRoot open={open} onOpenChange={e => setOpen(e.open)}>
 			<PopoverTrigger asChild>
-				<Button colorPalette={'red'} variant={'outline'}>
+				<Button
+					colorPalette={'red'}
+					variant={'outline'}
+					outline={{ base: 'colorPalette.700', _hover: 'colorPalette.600' }}
+				>
 					<Trash />
 				</Button>
 			</PopoverTrigger>
@@ -36,7 +40,13 @@ const Confirm = ({ handleDelete }) => {
 						<Button variant={'outline'} onClick={() => setOpen(false)}>
 							Cancel
 						</Button>
-						<Button onClick={handleConfirm}>Yes</Button>
+						<Button
+							onClick={handleConfirm}
+							colorPalette={'red'}
+							bg={{ base: 'colorPalette.700', _hover: 'colorPalette.600' }}
+						>
+							Yes
+						</Button>
 					</HStack>
 				</PopoverBody>
 				<PopoverCloseTrigger />

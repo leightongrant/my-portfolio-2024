@@ -13,6 +13,8 @@
     "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^3.1.0",
     "@emotion/react": "^11.13.3",
+    "@fontsource-variable/cinzel": "^5.1.0",
+    "@fontsource-variable/comfortaa": "^5.1.0",
     "@uidotdev/usehooks": "^2.4.1",
     "axios": "^1.7.7",
     "lucide-react": "^0.453.0",

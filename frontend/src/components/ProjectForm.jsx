@@ -192,9 +192,9 @@ const ProjectForm = ({ setOpen, item }) => {
 						/>
 					</Field>
 					<Button
-						colorPalette={'blue'}
+						colorPalette={'green'}
 						onClick={handleSubmit}
-						bg={{ base: 'colorPalette.900', _hover: 'colorPalette.800' }}
+						bg={{ base: 'colorPalette.700', _hover: 'colorPalette.600' }}
 					>
 						Submit
 					</Button>

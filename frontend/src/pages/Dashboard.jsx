@@ -17,19 +17,21 @@ const Dashboard = () => {
 
 	return (
 		<Box as={'section'} py={'sectionPadding'}>
-			<Container mb='16'>
-				<AddProject />
-			</Container>
-			<Container>
-				<SimpleGrid gap={5} templateColumns={'1fr 1fr'}>
-					<For each={projects} fallback={fallBack}>
-						{item => (
-							<Box key={item._id}>
-								<DashboardCard item={item} />
-							</Box>
-						)}
-					</For>
-				</SimpleGrid>
+			<Container maxW={'desktop'}>
+				<Box mb='16'>
+					<AddProject />
+				</Box>
+				<Box>
+					<SimpleGrid gap={5} templateColumns={'1fr 1fr'}>
+						<For each={projects} fallback={fallBack}>
+							{item => (
+								<Box key={item._id}>
+									<DashboardCard item={item} />
+								</Box>
+							)}
+						</For>
+					</SimpleGrid>
+				</Box>
 			</Container>
 		</Box>
 	)

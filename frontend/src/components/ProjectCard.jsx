@@ -3,7 +3,16 @@ import { ExternalLink } from 'lucide-react'
 
 const ProjectCard = ({ item }) => {
 	return (
-		<Card.Root maxW={'auto'} overflow='hidden'>
+		<Card.Root
+			maxW={'auto'}
+			overflow='hidden'
+			_hover={{
+				cursor: 'pointer',
+				scale: '1.025',
+				transition: '.2s linear',
+				shadow: 'lg',
+			}}
+		>
 			<Image src={item.image} alt={item.about} />
 			<Card.Body gap='2'>
 				<Card.Title>{item.title}</Card.Title>

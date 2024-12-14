@@ -33,7 +33,7 @@ const AboutMe = () => {
 
 	return (
 		<Box>
-			<Container>
+			<Container maxW={'desktop'}>
 				<SimpleGrid
 					gap={10}
 					templateColumns={{ base: '1fr', tablet: 'repeat(2, 1fr)' }}

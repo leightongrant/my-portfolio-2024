@@ -1,4 +1,6 @@
 import { defaultConfig, createSystem, defineConfig } from '@chakra-ui/react'
+import '@fontsource-variable/comfortaa'
+import '@fontsource-variable/cinzel'
 
 const config = defineConfig({
 	globalCss: {
@@ -10,10 +12,14 @@ const config = defineConfig({
 	theme: {
 		tokens: {
 			fonts: {
-				heading: { value: `'Times New Roman', serif` },
-				body: { value: `'Montserrat', sans-serif` },
+				heading: { value: `'Cinzel Variable', serif` },
+				body: { value: `'Comfortaa Variable', system-ui, sans-serif` },
 			},
-
+			sizes: {
+				phone: { value: '768px' },
+				tablet: { value: '992px' },
+				desktop: { value: '1200px' },
+			},
 			colors: {
 				brand: { value: '#9a8c98' },
 				bradPrimary: { value: '#4a4e69' },

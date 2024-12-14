@@ -1,59 +1,45 @@
-import {
-	Box,
-	Container,
-	Heading,
-	Image,
-	SimpleGrid,
-	Text,
-} from '@chakra-ui/react'
+import { Box, Container, Heading, Text, Stack } from '@chakra-ui/react'
 import { Button } from './ui/button'
+import heroBg from '../assets/images/hero-bg.jpg'
 
 const Hero = () => {
 	return (
 		<Box
-			minH={'100dvh'}
-			bgColor={'gray'}
-			backgroundImage={
-				'url(https://images.unsplash.com/photo-1730248202596-fbdef5624120?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
-			}
-			backgroundPosition={'right'}
+			bg={'gray.500'}
+			backgroundImage={`url(${heroBg})`}
+			backgroundPosition={'top left'}
 			backgroundSize={'cover'}
 		>
-			<Container py={'heroPadding'}>
-				<SimpleGrid
-					alignItems={'center'}
-					templateColumns={{ base: '1fr', wide: '1fr 1fr' }}
-				>
-					<Box
-						color={'brandLight'}
-						display={'grid'}
-						alignItems={'center'}
-						gap={10}
-						w={'60ch'}
-						p={'3em'}
-					>
+			<Box bg={'blackAlpha.600'}>
+				<Container maxW={'desktop'}>
+					<Stack placeContent={'center'} gap={10} minH={'80dvh'} width={'60ch'}>
 						<Box>
-							<Heading as={'h2'} size={'6xl'}>
+							<Heading
+								as={'h2'}
+								size={'6xl'}
+								fontWeight={700}
+								letterSpacing={2}
+							>
 								Hello, I&apos;m Leighton Grant
 							</Heading>
 						</Box>
 						<Box>
-							<Text textStyle={'2xl'}>
-								Passionate Frontend Developer I love to provide quality work
+							<Text textStyle={'2xl'} fontWeight={100}>
+								I&apos;m a passionate Frontend Developer who loves to provide
+								quality work for all my clients.
 							</Text>
 						</Box>
-						<Button variant='solid' colorPalette={'gray.900'} size='xl'>
+						<Button
+							variant='solid'
+							colorPalette={'gray.900'}
+							size='xl'
+							width={'150px'}
+						>
 							GET IN TOUCH
 						</Button>
-					</Box>
-					<Box p={'3em'}>
-						<Image
-							src='https://images.unsplash.com/photo-1679217121311-cdba4c533593?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-							borderRadius={'10px'}
-						/>
-					</Box>
-				</SimpleGrid>
-			</Container>
+					</Stack>
+				</Container>
+			</Box>
 		</Box>
 	)
 }

@@ -5,14 +5,15 @@ import { ColorModeButton } from '@/components/ui/color-mode'
 
 const Navbar = ({ y, Y, pathname }) => {
 	return (
-		<Container>
-			<Flex as={'nav'} py={'4'}>
+		<Container maxW={'desktop'}>
+			<Flex as={'nav'}>
 				<HStack>
 					<Link href='/'>
 						<Text
 							fontWeight={'bolder'}
 							textStyle={'xl'}
 							color={y > Y ? 'brandDark' : 'brandLight'}
+							py={5}
 						>
 							LOGO
 						</Text>
@@ -31,7 +32,10 @@ const Navbar = ({ y, Y, pathname }) => {
 				<Spacer />
 				<HStack>
 					<HStack>
-						<ColorModeButton color={y > Y ? 'brandDark' : 'brandLight'} />
+						<ColorModeButton
+							color={y > Y ? 'brandDark' : 'brandLight'}
+							variant={'plain'}
+						/>
 					</HStack>
 					<HStack hideFrom={'md'}>
 						<HamburgerMenu y={y} Y={Y} />

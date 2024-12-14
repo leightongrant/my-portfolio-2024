@@ -12,7 +12,6 @@ import {
 import { Pencil } from 'lucide-react'
 import ProjectForm from './ProjectForm'
 import { useState } from 'react'
-// import { useProjectStore } from '@/store/projectStore'
 
 const EditProject = ({ item }) => {
 	const [open, setOpen] = useState(false)
@@ -21,13 +20,17 @@ const EditProject = ({ item }) => {
 		<HStack>
 			<DialogRoot lazyMount open={open} onOpenChange={e => setOpen(e.open)}>
 				<DialogTrigger asChild>
-					<Button variant='outline' colorPalette={'blue'}>
+					<Button
+						variant='outline'
+						colorPalette={'green'}
+						outline={{ base: 'colorPalette.700', _hover: 'colorPalette.600' }}
+					>
 						<Pencil />
 					</Button>
 				</DialogTrigger>
-				<DialogContent bg='brandLight'>
+				<DialogContent>
 					<DialogHeader>
-						<DialogTitle>Add a Project</DialogTitle>
+						<DialogTitle>Edit Project</DialogTitle>
 					</DialogHeader>
 					<DialogBody>
 						<ProjectForm setOpen={setOpen} item={item} />

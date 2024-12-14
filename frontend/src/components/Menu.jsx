@@ -1,4 +1,6 @@
 import { Link } from '@chakra-ui/react'
+import { mainMenu } from '@/menu'
+
 const Menu = ({ y, Y, pathname }) => {
 	let color = ''
 	if (
@@ -10,20 +12,31 @@ const Menu = ({ y, Y, pathname }) => {
 		color = y > Y ? 'brandDark' : 'brandLight'
 	}
 
+	const hover = {
+		textDecoration: 'none',
+		borderBlockEnd: '5px solid',
+		borderColor: 'brandLight',
+	}
+
+	const active = { borderBlockEnd: '5px solid', borderColor: 'brandDark' }
+
 	return (
 		<>
-			<Link href='/' color={color}>
-				Home
-			</Link>
-			<Link href='/about' color={color}>
-				About
-			</Link>
-			<Link href='/projects' color={color}>
-				Projects
-			</Link>
-			<Link href='/contact' color={color}>
-				Contact
-			</Link>
+			{mainMenu.map(item => (
+				<Link
+					key={item.name}
+					href={item.location}
+					_hover={hover}
+					_active={'none'}
+					color={color}
+					px={2}
+					h={'100%'}
+					transition={'border-block-end .2s linear .2s'}
+					style={pathname === item.location ? active : {}}
+				>
+					{item.name}
+				</Link>
+			))}
 		</>
 	)
 }

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router'
-import { SimpleGrid, Box } from '@chakra-ui/react'
+import { SimpleGrid, Box, Theme } from '@chakra-ui/react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import PageBanner from './PageBanner'
@@ -9,20 +9,21 @@ import { useWindowScroll } from '@uidotdev/usehooks'
 import { Toaster } from '@/components/ui/toaster'
 
 const Layout = () => {
-	const bg = useColorModeValue('brandLight', 'brandDark')
+	const bg = useColorModeValue('white', 'brandDark')
 	const { pathname } = useLocation()
 	const [{ y }] = useWindowScroll()
-	const Y = 100
+	const Y = 110
 
 	return (
-		<SimpleGrid gridTemplateRows={'auto 1fr auto'} minH={'100dvh'} bg={bg}>
+		<SimpleGrid gridTemplateRows={'auto 1fr auto'} minH={'100dvh'}>
 			<Box as='header'>
 				<Box
 					pos='fixed'
 					w={'100%'}
 					zIndex={1}
-					bg={y > Y ? 'brandLight' : 'whiteAlpha.300'}
+					bg={y > Y ? bg : 'whiteAlpha.300'}
 					shadow={'0 1px 20px #111'}
+					transition={'background .2s linear .2s'}
 				>
 					<Navbar y={y} Y={Y} pathname={pathname} />
 				</Box>
@@ -37,7 +38,9 @@ const Layout = () => {
 				<Toaster />
 			</Box>
 			<Box as='footer'>
-				<Footer />
+				<Theme appearance='dark'>
+					<Footer />
+				</Theme>
 			</Box>
 		</SimpleGrid>
 	)

@@ -28,9 +28,9 @@ const AddProject = () => {
 						Add Project <SquarePlus />
 					</Button>
 				</DialogTrigger>
-				<DialogContent bg='brandLight'>
+				<DialogContent>
 					<DialogHeader>
-						<DialogTitle>Add a Project</DialogTitle>
+						<DialogTitle>Add Project</DialogTitle>
 					</DialogHeader>
 					<DialogBody>
 						<ProjectForm setOpen={setOpen} />

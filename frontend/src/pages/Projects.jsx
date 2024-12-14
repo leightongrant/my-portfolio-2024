@@ -10,38 +10,11 @@ const Projects = () => {
 	useEffect(() => {
 		getProjects()
 	}, [getProjects])
-
-	if (!projects) {
-		const skeleton = [1, 2, 3, 4]
-		return (
-			<Box as={'section'} py={'sectionPadding'}>
-				<Container>
-					<SimpleGrid
-						gap={10}
-						templateColumns={{
-							base: '1fr',
-							wide: 'repeat(4, 1fr)',
-							tablet: 'repeat(3, 1fr)',
-							small: 'repeat(2, 1fr)',
-						}}
-						templateRows={'1fr 1fr'}
-					>
-						<For each={skeleton}>
-							{item => (
-								<Box key={item}>
-									<ProjectSkeleton />
-								</Box>
-							)}
-						</For>
-					</SimpleGrid>
-				</Container>
-			</Box>
-		)
-	}
+	const skeleton = [1, 2, 3, 4]
 
 	return (
 		<Box as={'section'} py={'sectionPadding'}>
-			<Container>
+			<Container maxW={'desktop'}>
 				<SimpleGrid
 					gap={10}
 					templateColumns={{
@@ -50,12 +23,11 @@ const Projects = () => {
 						tablet: 'repeat(3, 1fr)',
 						small: 'repeat(2, 1fr)',
 					}}
-					templateRows={'1fr 1fr'}
 				>
-					<For each={projects} fallback={fallBack}>
+					<For each={!projects ? skeleton : projects} fallback={fallBack}>
 						{item => (
-							<Box key={item._id}>
-								<ProjectCard item={item} />
+							<Box key={!projects ? item : item._id}>
+								{!projects ? <ProjectSkeleton /> : <ProjectCard item={item} />}
 							</Box>
 						)}
 					</For>
